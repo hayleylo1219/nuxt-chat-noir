@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"]
+    },    
+    "types": ["@nuxt/types"],
+    "allowImportingTsExtensions": true,
+  },
+  "include": [ // 納入 .vue 文件
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "env.d.ts",
+    ".nuxt/nuxt.d.ts", // 讀得到 ref
+    "**/*" // 讀得到 ref
+  ],
+  // https://nuxt.com/docs/guide/concepts/typescript
+  "exclude": ["node_modules"],
+  "extends": "./.nuxt/tsconfig.json", // 讀得到 ref 
+}
