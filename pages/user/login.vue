@@ -17,7 +17,7 @@ const login = async () => {
 
 <template>
   <div class="w-full max-w-md rounded bg-gray-800 p-8 shadow-md">
-    <h1 class="mb-6 text-center text-2xl font-bold text-white">Login</h1>
+    <h1 class="mb-6 text-center text-2xl font-bold text-white">Login1</h1>
     <form @submit.prevent="login">
       <div class="mb-4">
         <label for="email" class="mb-2 block text-white">Email</label>
