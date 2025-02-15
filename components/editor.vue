@@ -53,7 +53,7 @@ const submitPost = async () => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      authorId: user.id,
+      authorId: user?.id,
       content: postContent.value,
       // links: JSON.stringify(linkPreview.value?.link),
       // show_link_preview: false,

@@ -1,5 +1,5 @@
 export const useUserStore = defineStore('user', () => {
-  const userInfo = ref(null)
+  const userInfo = ref<any>(null)
   const supabase = useSupabaseClient()
 
   async function getUserInfo() {
@@ -11,7 +11,7 @@ export const useUserStore = defineStore('user', () => {
   }
 
   async function login(email:string, password:string) {    
-      const { user, error } = await supabase.auth.signInWithPassword({
+      const { data: { user }, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
       })

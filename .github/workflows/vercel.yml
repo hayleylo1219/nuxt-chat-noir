@@ -1,0 +1,28 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main # 監聽 master 分支，當 push 時觸發 CI/CD
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # 指定執行環境
+
+    steps:
+      - name: 🚀 Checkout Repository
+        uses: actions/checkout@v3 # 下載你的程式碼
+
+      - name: 🔧 Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # 使用 Node.js 18
+
+      - name: 📦 Install Dependencies
+        run: npm install # 安裝 Nuxt 依賴
+
+      - name: 🔨 Build Project
+        run: npm run build # 執行 Nuxt 构建
+
+      - name: 🚀 Deploy to Vercel
+        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }} # 部署到 Vercel
