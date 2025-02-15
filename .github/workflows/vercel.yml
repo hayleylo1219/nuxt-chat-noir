@@ -21,6 +21,10 @@ jobs:
       - name: 📦 Install Dependencies
         run: npm install # 安裝 Nuxt 依賴
 
+      # 4. Run Prisma generate
+      - name: Generate Prisma Client
+        run: npx prisma generate # 確保 Prisma Client 生成
+
       - name: 🔨 Build Project
         run: npm run build # 執行 Nuxt 构建
 
