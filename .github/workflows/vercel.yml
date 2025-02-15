@@ -25,4 +25,4 @@ jobs:
         run: npm run build # 執行 Nuxt 构建
 
       - name: 🚀 Deploy to Vercel
-        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }} # 部署到 Vercel
+        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes # 部署到 Vercel
