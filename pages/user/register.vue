@@ -25,6 +25,7 @@ const register = async () => {
     options: {
       data: {
         show_name: account.value,
+        role: ['general'],
       },
     },
   })

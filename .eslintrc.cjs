@@ -22,6 +22,7 @@ export default defineConfig({
   plugins: [
     'vue',
     '@typescript-eslint',
+    'prettier',
   ],
   rules: {
     'vue/multi-word-component-names': 'off',

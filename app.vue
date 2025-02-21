@@ -5,6 +5,7 @@ const message = ref('Hello Vue 3 + Vite')
 </script>
 
 <template>
+  <NuxtPwaManifest />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

@@ -10,6 +10,7 @@ export default defineEventHandler(async (event) => {
       id: body.id,
       name: body.name,
       email: body.email,
+      role: ['general']
     }
   })
 

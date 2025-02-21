@@ -10,7 +10,17 @@ export const useUserStore = defineStore('user', () => {
     return user
   }
 
-  async function login(email:string, password:string) {    
+  async function setUserInfo(user_id:string) {
+    await $fetch('/api/user/get', {
+      method: 'POST',
+      body: { user_id }
+    }).then((res) => {
+      userInfo.value = res[0]
+    return userInfo.value
+    })
+  }
+
+  async function login(email:string, password:string) {
       const { data: { user }, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
@@ -18,9 +28,8 @@ export const useUserStore = defineStore('user', () => {
       if (error) {
         console.error('Error logging in:', error.message)
       } else {
-        userInfo.value = user
-        console.log(userInfo.value)
         navigateTo('/post')
+        return user
       }
   }
 
@@ -29,5 +38,5 @@ export const useUserStore = defineStore('user', () => {
     navigateTo('/user/login')
   }
 
-  return { userInfo, getUserInfo, login, logout }
+  return { userInfo, getUserInfo, setUserInfo, login, logout }
 })

@@ -9,9 +9,15 @@ const supabase = useSupabaseClient()
 const email = ref('')
 const password = ref('')
 const userStore = useUserStore()
+const user = useState('user', () => null)
 
 const login = async () => {
-  await userStore.login(email.value, password.value)
+  const userInfo = await userStore.login(email.value, password.value)
+  await userStore.setUserInfo(userInfo.id)
+  user.value = userStore.userInfo
+  console.log('1:', user.value)
+
+  console.log('2:', userStore.userInfo)
 }
 </script>
 

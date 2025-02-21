@@ -16,12 +16,18 @@ const submitPost = () => {
   console.log('Post content:', postContent.value)
   closeModal()
 }
+const test1 = ref()
+const test2 = ref('Hello2')
+const user = useState('user')
+console.log(user.value)
 </script>
 
 <template>
   <div class="flex-1">
     <div class="flex-1">
       <h2 class="mb-4 text-center text-xl font-bold text-white">Posts</h2>
+      <!-- <NavBar v-model:test1="test1" v-model:test2="test2"></NavBar> -->
+      <!-- <div>From P: {{ test1 }}, {{ test2 }}</div> -->
       <div class="flex min-h-screen justify-center bg-gray-900 p-4">
         <div class="w-full max-w-2xl rounded-[30px] bg-gray-800 p-6 shadow-lg">
           <Posts :fetchType="'all'" />
